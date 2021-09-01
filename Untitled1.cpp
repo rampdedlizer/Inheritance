@@ -139,3 +139,80 @@ int main()
 	else{ a3.spread(); }
 		
 }
+
+
+
+#include <iostream>
+
+class person
+{
+protected:
+	std::string name;
+	int code;
+public:
+	void input()
+	{
+		std::cout << "Enter your name : ";
+		std::cin >> name;
+
+		std::cout << "Enter your code : ";
+		std::cin >> code;
+	}
+	void display()
+	{
+		std::cout << "Name -> " << name << std::endl;
+		std::cout << "Code -> " << code << std::endl;
+	}
+};
+
+class account :public virtual person
+{
+protected:
+	int pay;
+public:
+	void enter()
+	{
+		std::cout << "Enter your pay : ";
+		std::cin >> pay;
+	}
+	void d1()
+	{
+		std::cout << "Pay -> " << pay << std::endl;
+	}
+};
+
+class admin :virtual public person
+{
+protected:
+	int exp;
+public:
+	void speak()
+	{
+		std::cout << "Enter your experience( in yrs) : ";
+		std::cin >> exp;
+	}
+	void d2()
+	{
+		std::cout << "Experience -> " << exp << std::endl;
+	}
+};
+
+class object :public account, public admin
+{
+public:
+	void result()
+	{
+		input();
+		enter();
+		speak();
+		display();
+		d1();
+		d2();
+	}
+};
+
+int main()
+{
+	object p1;
+	p1.result();
+}
